@@ -23,3 +23,9 @@ Pourquoi typeof null renvoie-t-il 'object' alors que null n'est pas un objet ?
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const carteApprenant = (prenom, age, commune, estInscrit = false, surnom, ancienneFormation = null) =>{
+    console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
+    return `${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${typeof ancienneFormation}`
+};
+
+console.log (carteApprenant ("Grâce", 22, "Lemba"));

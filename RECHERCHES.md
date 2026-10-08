@@ -10,13 +10,26 @@
 **Question :** Pourquoi typeof null renvoie-t-il 'object' alors que null n'est pas un objet ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Ce resultat est une erreur qui a finis par devenir une particularité. Le langage a été créé encodé pour des valeurs en 32 bit,une valeur stockait donc deux informations :
+1. sa nature/ son type (les 3 premier bits)
+2. sa donnée/valeur réele (le reste des 29 bits)
+Le type objet équivaut à 000 (3 bits) suivit de sa donnée alors que le type null lui est n'a pas de donnée et est nulle, l'erreure a été de donner les 32 bit valant 0 (000000...) ce qui fait que l'execution prène les 3 premier zero du type null pour ceux du type objet.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // voici le code que j'ai exécuté
+        const carteApprenant = (prenom, age, commune, estInscrit = false, surnom, ancienneFormation = null) =>{
+            console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
+            return `${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${typeof ancienneFormation}`
+        };
+
+        console.log (carteApprenant ("Grâce", 22, "Lemba"));
+    // voici le resultat obtenu
+        Je m'appelle Grâce, j'ai 22 ans et j'habite à Lemba.
+        string, number, string, boolean, undefined, object
 ```
 
 **Source :** 
