@@ -41,13 +41,26 @@ Le type objet équivaut à 000 (3 bits) suivit de sa donnée alors que le type n
 **Question :** Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utiliser pour le détecter ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+NaN est une valeur qui n'est pas un "Number" (Not a Number).
+NaN est du type Number contrairement à ce que reflette son nom, caractérisé comme une valeur falsy dans les conditions logiques pourtant NaN === NaN renvoi étonament false. Ce resultat est du au fait que NaN est une valeur qui n'est pas égal à elle même.
+Le seul moyen de ne pas avoir un faux vrais est d'utiliser la fonction Number.isNaN(NaN). La valeur envoyé en argument est alor éxaminé et renvoi true si est seulement si le type de cette dernière est Number et que la valeur est un NaN (ce qui est le cas sur l'Ex : Number.isNaN(NaN))
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // voici le code que j'ai exécuté
+        const saisie = '2500';
+        console.log (saisie + 500);
+
+        console.log (Number(saisie) + 500);
+
+        console.log (`les prédictions vérifiées : ${Number('')}, ${Number('abc')}, ${Number(' 42 ')}, ${Number(true)}`);
+    // voici le resultat obtenu
+        2500500
+        3000
+        les prédictions vérifiées : 0, NaN, 42, 1
 ```
 
 **Source :** 
