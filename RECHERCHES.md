@@ -161,13 +161,30 @@ c'est à dire qu'il ne retourne et opère qu'une seule information et pas plus.
 **Question :** À quoi sert le mot-clé continue ? Quelle différence avec break ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Le mot clé continue est un mot clé qui nous permet de passer ou omettre une exécution dans une boucle.
+Break lui sert à sortir de l'exécution d'une boucle.
+Les deux sont donc différent tant par leur utilité que par leur nom.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // teste efféctué
+        let resultat = "";
+
+        for (let i = 10; i !== 0; i--){
+            if (i === 1) {
+                resultat += `${i}, Décollage !`
+                break
+            }
+            else if (i === 5) continue;
+            resultat += `${i}, `;
+        }
+
+        console.log(resultat);
+    // resultat
+        10, 9, 8, 7, 6, 4, 3, 2, 1, Décollage !
 ```
 
 **Source :** 
