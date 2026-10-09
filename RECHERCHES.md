@@ -135,13 +135,21 @@ On les reserve pour des structures simples et courtes.
 **Question :** Quand peut-on enlever les parenthèses autour des paramètres, et quand peut-on enlever return et les accolades ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+On peut enlever les parenthèses autour des paramètres sur une fonction fléché qui est prévu pour en avoir qu'un, lorqu'on en a zéro ou plus d'un il faut en mêtre obligatoirement.
+Returne et les accolades peuvent se retirer que si le retour de la fonction est implicite :
+c'est à dire qu'il ne retourne et opère qu'une seule information et pas plus.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+        const saluer = (prenom) => `Mbote ${prenom} !`;
+        const carre = (n) => n ** 2;
+
+        console.log(`${saluer("Lys")} puis ${carre(7)}`);
+    // resultat
+        Mbote Lys ! puis 49
 ```
 
 **Source :** 
