@@ -103,13 +103,27 @@ La condition % 2 === 1 ne valide pas l'équation sur des nombres négatifs car o
 **Question :** Peut-on enchaîner plusieurs ternaires ? Pourquoi est-ce souvent déconseillé ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Oui, il est bien possible d'enchainer plusieurs ternaires en cascade.
+Cepandant il est déconseillé d'utilliser un ternair pour une condition complexe.
+On les reserve pour des structures simples et courtes.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // le test que j'ai exécuté avec le ternair:
+        const age = 16;
+
+        const testMajorite = age >= 18 ? "Majoeur" : "Mineur";
+        // résultat avec consol.log
+            Mineur
+    // celui exécuté avec la structure if, else if, else
+        if (age < 5) console.log("Statu : mineur — Tarif : gratuit");
+        else if (age > 5 && age < 18) console.log("Statu : mineur — Tarif : 500 FC");
+        else console.log("Statu : majeur — Tarif : 1000 FC")
+        // résultat
+            Statu : mineur — Tarif : gratuit
 ```
 
 **Source :** 

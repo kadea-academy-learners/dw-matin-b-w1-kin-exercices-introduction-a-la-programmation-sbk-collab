@@ -22,3 +22,10 @@ Peut-on enchaîner plusieurs ternaires ? Pourquoi est-ce souvent déconseillé ?
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const age = 16;
+
+const testMajorite = age >= 18 ? "Majoeur" : "Mineur";
+
+if (age < 5) console.log("Statu : mineur — Tarif : gratuit");
+else if (age > 5 && age < 18) console.log("Statu : mineur — Tarif : 500 FC");
+else console.log("Statu : majeur — Tarif : 1000 FC")
