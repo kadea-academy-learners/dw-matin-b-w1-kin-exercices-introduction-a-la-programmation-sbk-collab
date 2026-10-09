@@ -72,13 +72,26 @@ Le seul moyen de ne pas avoir un faux vrais est d'utiliser la fonction Number.is
 **Question :** Que renvoie -7 % 2 ? Déduis-en pourquoi il vaut mieux tester % 2 !== 0 plutôt que % 2 === 1 pour détecter un nombre impair.
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Le résultatt de -7 % 2 est -1 c'est pourqoi il est mieux d'utiliser une formul qui donne un résultat valable à notre besoin.
+La condition % 2 === 1 ne valide pas l'équation sur des nombres négatifs car on obtient soit -1 soit 0 comme valeur différente. C'est pourquoi il est mieux de fair le test avec un résultat qui ne change pas tant du coté négatif que du coté positif, ce qui rend % 2 === 0 pour les nombre pair et % 2 !== 0 pour les nombre impair comme le meilleur test car le résulta est bon de tout les cotés (+ et -)
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test pour virrifier 17
+        if (numeroTicket % 2 === 0) console.log (`Ticket ${numeroTicket} : Pair, tu gagnes un tote bag`);
+        else console.log (`Ticket ${numeroTicket} : impair, tu gagnes un stylo`);
+
+        console.log("-----------------------------------------")
+    // test pour verrifier 17, 24 et 0
+        const verrifierParite = (numeroTicket) =>{
+            if (numeroTicket % 2 === 0) return (`Ticket ${numeroTicket} : Pair, tu gagnes un tote bag`);
+            else return (`Ticket ${numeroTicket} : impair, tu gagnes un stylo`);
+        }
+
+        console.log (`${verrifierParite(17)}\n${verrifierParite(24)}\n${verrifierParite(0)}`);
 ```
 
 **Source :** 
