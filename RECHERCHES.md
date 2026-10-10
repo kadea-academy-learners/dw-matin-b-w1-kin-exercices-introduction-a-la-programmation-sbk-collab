@@ -272,13 +272,39 @@ formeMillier = n.toLocaleString('fr-FR'); n valant 75000 va alors s'afficher ave
 **Question :** Quelle est la liste complète des valeurs falsy en JavaScript ? (Indice : il y en a plus que dans cet exercice.)
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+1. Les valeurs de vide absolu : false, null, undefined
+2. les nombres falsy : 0, -0, 0n, NaN
+3. Le texte falsy : '' ou "" ou encore `` : des chaine de caractères strictement vide
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const estRempli = (valeur) => valeur ? 'rempli' : 'vide';
+
+        console.log(estRempli(''));
+        console.log(estRempli('Esther'));
+        console.log(estRempli(0));
+        console.log(estRempli(42));
+        console.log(estRempli(null));
+        console.log(estRempli(undefined));
+        console.log(estRempli(NaN));
+        console.log(estRempli(' '));
+        console.log(estRempli('0'));
+        console.log(estRempli(false));
+    // resultat
+        vide
+        rempli
+        vide
+        rempli
+        vide
+        vide
+        vide
+        rempli
+        rempli
+        vide
 ```
 
 **Source :** 
