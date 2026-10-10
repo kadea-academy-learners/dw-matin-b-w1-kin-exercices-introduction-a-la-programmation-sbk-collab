@@ -362,13 +362,33 @@ false ?? true renvoi false (valeur par défaut) et false || true renvoi true. On
 **Question :** Pourquoi var est-il banni du code moderne ? Cherche ce que sont la portée de fonction et le « hoisting ».
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Var est un mot clé qui confère à une variable une porté total sur l'intégralité du code, ce qui fait que la variable ne respectera pas les scops d'une fonction, condition...
+Le hoisting ou hissage est un comportement que JavaScript adopte lors de la compilation :
+il place l'élément déclaré au dessus de sa porté, ce qui fait que cet élément peut être appelé avant sa déclaration en fonction du mot clé utilisé pour (var).
+let et const et par conséquant les fonctions fléchée qui sont des fonctions stockées dans des variable sont placées en TDZ (Zone Morte Temporelle) c'est à dire qu'il sont hissé mais JavaScript bloque leur appèle avant la ligne de leur déclaration, ils les place en "zone morte".
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const ville = 'Kinshasa';
+        if (true) {
+            const commune = 'Gombe';
+            console.log(ville);
+            console.log(commune);
+        }
+
+        const afficher = () => {
+            const secret = 'pondu';
+            return secret;
+        };
+        console.log(afficher());
+    // resultat
+        Kinshasa
+        Gombe
+        pondu
 ```
 
 **Source :** 
