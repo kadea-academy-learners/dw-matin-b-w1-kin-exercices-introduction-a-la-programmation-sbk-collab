@@ -316,13 +316,41 @@ formeMillier = n.toLocaleString('fr-FR'); n valant 75000 va alors s'afficher ave
 **Question :** Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de || ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+?? est un opérateur qui qui renvoi la valeur par défaut à condition que la valeur testée soit null ou undefined.
+La différence avec || (ou) : || valide la condition/ comparaison si au moins une des propositions est vraie.
+false ?? true renvoi false (valeur par défaut) et false || true renvoi true. On utilise l'un ou l'autre en fonction du résultat recherché car les deux restent très différent.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const afficherScoreBug = (score) => score ? `Score : ${score}` : `Score : 'aucun'`;
+
+        console.log (afficherScoreBug(15));
+        console.log (afficherScoreBug(0));
+        console.log (afficherScoreBug(undefined));
+
+        console.log ('.............................................')
+
+        // ici 0 ne donne pas le résultat attendu car il est considéré comme false
+
+        const afficherScore = (score = `'aucun'`) => `Score : ${score}` ?? score;
+
+        console.log (afficherScore(15));
+        console.log (afficherScore(0));
+        console.log (afficherScore(undefined));
+
+        // là 0 donne le résultat escompté car l'oppérateur ?? (nullish coalescing) définit la valeur par défaut seulement sur les null ou undefined
+    // resultat avec le bug
+        Score : 15
+        Score : 'aucun'
+        Score : 'aucun'
+        ............................................. // resultat sans le bug
+        Score : 15
+        Score : 0
+        Score : 'aucun'
 ```
 
 **Source :** 

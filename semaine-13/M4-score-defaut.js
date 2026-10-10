@@ -24,3 +24,21 @@ Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const afficherScoreBug = (score) => score ? `Score : ${score}` : `Score : 'aucun'`;
+
+console.log (afficherScoreBug(15));
+console.log (afficherScoreBug(0));
+console.log (afficherScoreBug(undefined));
+
+console.log ('.............................................')
+
+// ici 0 ne donne pas le résultat attendu car il est considéré comme false
+
+
+const afficherScore = (score = `'aucun'`) => `Score : ${score}` ?? score;
+
+console.log (afficherScore(15));
+console.log (afficherScore(0));
+console.log (afficherScore(undefined));
+
+// là 0 donne le résultat escompté car l'oppérateur ?? (nullish coalescing) définit la valeur par défaut seulement sur les null ou undefined
