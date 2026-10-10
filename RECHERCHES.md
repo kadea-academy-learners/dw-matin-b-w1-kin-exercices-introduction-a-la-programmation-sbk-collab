@@ -400,13 +400,31 @@ let et const et par conséquant les fonctions fléchée qui sont des fonctions s
 **Question :** Le troisième bug vient de l'« insertion automatique de point-virgule » (ASI). Explique ce mécanisme en 3 lignes.
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Le troisième bug vien d'une insertion automatique de point-virgule.
+ASI : 
+JavaScript rajoute automatiquement un point virgule à la fin de chaques ligne pour finir une instruction, ce qui fait que la valeur qui vien après la ligne du return ne soit pas considéré
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const doubler = (n) => { return n * 2; };
+        console.log(doubler(4));
+
+        const calculerTva = (prix) => { return (prix * 0.16); };
+        const total = calculerTva(1000) + 500;
+        console.log(total);
+
+        const saluer = (prenom) => {
+            return `Mbote ${prenom}`;
+        };
+        console.log(saluer('Ney'));
+    // resultat
+        8
+        660
+        Mbote Ney
 ```
 
 **Source :** 
