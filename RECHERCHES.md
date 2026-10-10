@@ -196,13 +196,33 @@ Les deux sont donc différent tant par leur utilité que par leur nom.
 **Question :** Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeurs ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+FizzBuzz est devenu célèbre car il s'agit d'un test de filtrage rapide et impitoyable.
+Il est conçu pour tester eficassement la logique de code.
+Il ne sert pas a dénicher un génie en programation, juste a filtrer par un simple test les candidats qui savent aligner boucles, conditions et variable. 
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // le teste
+        let compteur = "";
+
+        for(let n = 1; n <= 30; n++){
+            if(n % 3 === 0){
+                if(n % 5 === 0) compteur += "MalewaWewa, ";
+                else compteur += "Malewa, ";
+            }
+            else if(n % 5 === 0) compteur += "Wewa, ";
+            else compteur += `${n}, `;
+
+            if(n === 15){
+                compteur = compteur.slice(0, -2);
+                break;
+            }
+        }
+    // le résultat
+        1, 2, Malewa, 4, Wewa, Malewa, 7, 8, Malewa, Wewa, 11, Malewa, 13, 14, MalewaWewa
 ```
 
 **Source :** 

@@ -21,3 +21,22 @@ Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeu
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+let compteur = "";
+
+for(let n = 1; n <= 30; n++){
+    if(n % 3 === 0){
+        if(n % 5 === 0) compteur += "MalewaWewa, ";
+        else compteur += "Malewa, ";
+    }
+    else if(n % 5 === 0) compteur += "Wewa, ";
+    else compteur += `${n}, `;
+
+    if(n === 15){
+        compteur = compteur.slice(0, -2);
+        break;
+    }
+}
+
+// l'ordre des condition doit être correcte pour un résultat correcte en accord avec ce qu'on recherche. 
+
+console.log(compteur);
