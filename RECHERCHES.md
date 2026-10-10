@@ -234,13 +234,33 @@ Il ne sert pas a dénicher un génie en programation, juste a filtrer par un sim
 **Question :** Comment afficher 75000 sous la forme 75 000 avec toLocaleString() ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+toLocaleString() est une méthode qui reçoi en argument une norme de séparation par millier en fonction d'une langue à une autre.
+Pour l'utiliser il duffit de stocker le nombre dans une variable ou l'avoir en retour d'une fonction :
+formeMillier = n.toLocaleString('fr-FR'); n valant 75000 va alors s'afficher avec le séparateur (un espace pour la norme française) 75 000
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const retirer = (solde, montant = 0) =>{
+            if(montant <= 0) return "Erreur : Le montant ne doit être nis null, ni négatif.\n Il doit s'agir d'un multiple de 5000";
+            else if(montant % 5000 !== 0) return "Montant invalide : multiple de 5 000 FC uniquement";
+            else if(montant > 500000) return "Plafond dépassé : 500 000 FC maximum";
+            else if(montant > solde) return "solde insuffisant";
+            else return `Retrait accepté. Nouveau solde : ${solde - montant} FC`;
+        }
+
+        console.log (retirer(100000, 25000));
+        console.log (retirer(100000, 12000));
+        console.log (retirer(1000000, 600000));
+        console.log (retirer(20000, 50000));
+    // resultat
+        Retrait accepté. Nouveau solde : 75000 FC
+        Montant invalide : multiple de 5 000 FC uniquement
+        Plafond dépassé : 500 000 FC maximum
+        solde insuffisant
 ```
 
 **Source :** 
