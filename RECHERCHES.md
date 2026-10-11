@@ -602,13 +602,53 @@ La méthode .reduce sert à "réduire" un tableau de plusieurs éléments en une
 **Question :** Comment afficher seulement les colonnes nom et stock avec console.table() ? Et que renvoient .find() et .filter() quand rien ne correspond ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+Pour afficher uniquement certaines colonnes avec console.table(), il faudra passer un tableau contenant leurs noms en argument : console.table(produits, ['nom', 'prix']).
+Quand aucun élément ne correspond aux critères de recherche :
+• .find() renvoie undefined
+• .filter() renvoie un tableau vide []
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const article = [
+            {id: 101, nom: "Clé USB 32 Go", categorie: "Informatique", prixFC: 14000, stock: 25},
+            {id: 102, nom: "Sac à dos Kadea", categorie: "Accessoires", prixFC: 42000, stock: 0},
+            {id: 103, nom: "Souris sans fil", categorie: "Informatique", prixFC: 28000, stock: 12},
+            {id: 104, nom: "Gourde isotherme", categorie: "Accessoires", prixFC: 21000, stock: 8},
+            {id: 105, nom: "Casque audio", categorie: "Informatique", prixFC: 70000, stock: 0},
+            {id: 106, nom: "Carnet de notes", categorie: "Papeterie", prixFC: 7000, stock: 40}
+        ];
+
+        // console.table(article)
+        console.table(article.filter(c => c.categorie.includes("Informatique")));
+
+        const chercherProduit = (id) =>{
+            const produitTrouve = article.find(p => p.id === id);
+
+            if (produitTrouve?.stock === 0) return `produit en rupture`
+
+            return produitTrouve?.nom ?? "Produit introuvable";
+        };
+
+        console.table(chercherProduit(104));
+        console.table(chercherProduit(999));
+        console.table(chercherProduit(102));
+        console.table(chercherProduit(105));
+    // resultat
+        ┌─────────┬─────┬───────────────────┬────────────────┬────────┬───────┐
+        │ (index) │ id  │ nom               │ categorie      │ prixFC │ stock │
+        ├─────────┼─────┼───────────────────┼────────────────┼────────┼───────┤
+        │ 0       │ 101 │ 'Clé USB 32 Go'   │ 'Informatique' │ 14000  │ 25    │
+        │ 1       │ 103 │ 'Souris sans fil' │ 'Informatique' │ 28000  │ 12    │
+        │ 2       │ 105 │ 'Casque audio'    │ 'Informatique' │ 70000  │ 0     │
+        └─────────┴─────┴───────────────────┴────────────────┴────────┴───────┘
+        Gourde isotherme
+        Produit introuvable
+        produit en rupture
+        produit en rupture
 ```
 
 **Source :** 

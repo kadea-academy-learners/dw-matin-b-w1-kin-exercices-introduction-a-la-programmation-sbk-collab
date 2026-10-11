@@ -31,3 +31,27 @@ Comment afficher seulement les colonnes nom et stock avec console.table() ? Et q
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const article = [
+   {id: 101, nom: "Clé USB 32 Go", categorie: "Informatique", prixFC: 14000, stock: 25},
+   {id: 102, nom: "Sac à dos Kadea", categorie: "Accessoires", prixFC: 42000, stock: 0},
+   {id: 103, nom: "Souris sans fil", categorie: "Informatique", prixFC: 28000, stock: 12},
+   {id: 104, nom: "Gourde isotherme", categorie: "Accessoires", prixFC: 21000, stock: 8},
+   {id: 105, nom: "Casque audio", categorie: "Informatique", prixFC: 70000, stock: 0},
+   {id: 106, nom: "Carnet de notes", categorie: "Papeterie", prixFC: 7000, stock: 40}
+];
+
+// console.table(article)
+console.table(article.filter(c => c.categorie.includes("Informatique")));
+
+const chercherProduit = (id) =>{
+   const produitTrouve = article.find(p => p.id === id);
+
+   if (produitTrouve?.stock === 0) return `produit en rupture`
+
+   return produitTrouve?.nom ?? "Produit introuvable";
+};
+
+console.table(chercherProduit(104));
+console.table(chercherProduit(999));
+console.table(chercherProduit(102));
+console.table(chercherProduit(105));
