@@ -516,13 +516,41 @@ L'étape 4 se serait exécuté une fois puis la boucle se serait arrété. Le re
 **Question :** Pourquoi 0.1 + 0.2 ne donne-t-il pas 0.3 en JavaScript ? Et pourquoi toFixed() est un piège si on veut continuer à calculer ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+0.1 + 0.2 ≠ 0.3 car les ordinateurs codent les nombres en binaire, ce qui crée des micro-arrondis infinis (comme 1/3 en décimal). toFixed() est un piège car il transforme le nombre en chaîne de caractères (string), ce qui brise les calculs futurs en concaténant le texte au lieu d'additionner
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const calculerLivraison = (distanceKm, poidsKg, estUrgent = false) =>{
+            let tarif = 0;
+            let tvaAppliquee = 0;
+            // conditions tarif de distance
+            if(distanceKm <= 15){
+                if(distanceKm < 5) tarif = 2000;
+                else tarif = 4000;
+            }
+            else tarif = 7000;
+            // conditions tarif de poid
+            if (poidsKg > 10){
+                tarif = (tarif + 1500) * 1.5;
+                estUrgent = true;
+            }
+
+            tvaAppliquee = tarif + (tarif * 0.16);
+
+            return tvaAppliquee;
+        };
+
+        console.log(calculerLivraison(3, 2));
+        console.log(calculerLivraison(10, 12, true));
+        console.log(calculerLivraison(20, 5));
+    // resultat
+        2320
+        9570
+        8120
 ```
 
 **Source :** 
