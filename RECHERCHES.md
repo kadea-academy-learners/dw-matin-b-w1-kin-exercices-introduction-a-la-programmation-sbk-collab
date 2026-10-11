@@ -436,13 +436,37 @@ JavaScript rajoute automatiquement un point virgule à la fin de chaques ligne p
 **Question :** Cite tous les opérateurs d'affectation composée (+=, -=…) et donne un exemple pour chacun.
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+le +=, -=, *=, **=, /=, %=, &&=, &=, ||=, |=, ^=, >>=, <<=, >>>= servent à ne pas repeter la valeur égal à l'opération.
+let variable = 0 pour additionner cette variable à une autre tout en stoquant le résultat en elle même on peut écrir :
+variable = variable + autreVariable. Cette formule n'est pas la seul car on peut également la noter variable += autreVariable.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        let epargneHebdo = 2000;
+        let bonus = 1000;
+        let total = 0;
+        let gainHebdo = 0;
+
+        for(let semaine = 1; semaine <= 12; semaine++){
+            total = (semaine * epargneHebdo);
+
+            if(semaine % 4 === 0){
+                gainHebdo += bonus;
+                total += gainHebdo; 
+                console.log(`Semaine ${semaine} : ${total} FC (bonus !)`)
+            }
+
+            if(semaine === 12) console.log(`Total après ${semaine} semaines : ${total} FC`); 
+        }
+    // resultat
+        Semaine 4 : 9000 FC (bonus !)
+        Semaine 8 : 18000 FC (bonus !)
+        Semaine 12 : 27000 FC (bonus !)
+        Total après 12 semaines : 27000 FC
 ```
 
 **Source :** 
