@@ -562,13 +562,35 @@ L'étape 4 se serait exécuté une fois puis la boucle se serait arrété. Le re
 **Question :** La méthode .reduce() n'a pas été vue en atelier. Explique ce qu'elle fait et réécris l'étape 2 avec elle.
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+La méthode .reduce sert à "réduire" un tableau de plusieurs éléments en une seule et unique valeur finale (un nombre, une chaîne de caractères, un objet, ou même un autre tableau).
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const heuresSemaine = [8, 9, 10, 8, 7, 6];
+        let horaireHebdoDeBase = 40;
+        let horiareHebdoTotal = 0;
+        heuresSemaine.forEach(n => horiareHebdoTotal += n);
+
+        const calculerSalaire = (heures, tauxHoraire = 2500) =>{
+            let salaireHebdo = 0;
+            let heuresSup = 0;
+            let paieParHeureSup = tauxHoraire * 1.5;
+            if(heures > 40){
+                heuresSup = heures - horaireHebdoDeBase;
+                salaireHebdo = (tauxHoraire * horaireHebdoDeBase ) + (paieParHeureSup * heuresSup);
+            }
+            else salaireHebdo = tauxHoraire * heures;
+
+            return `Total : ${heures} h — Salaire : ${salaireHebdo} FC ; jour le plus chargé : mercredi (10 h)`
+        };
+
+        console.log(calculerSalaire(horiareHebdoTotal));
+    // resultat
+        Total : 48 h — Salaire : 130000 FC ; jour le plus chargé : mercredi (10 h)
 ```
 
 **Source :** 
