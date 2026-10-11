@@ -478,13 +478,33 @@ variable = variable + autreVariable. Cette formule n'est pas la seul car on peut
 **Question :** Quelle est la différence entre while et do...while ? Que donnerait l'étape 4 avec un do...while ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+while et do while sont deux boucles qui s'exécutent pratiquement de la même manière, la différence majeur se trouve dans le respect de la condition.
+Avec do while le programe s'exécute aumoins une fois qu'importe la condition.
+L'étape 4 se serait exécuté une fois puis la boucle se serait arrété. Le resultat aurait été heur 0 batterie 100 %
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        let batterie = 100;
+        let heures = 0;
+
+        while (batterie >= 10){
+            let message = `Après ${heures} h, batterie à ${batterie} %`
+            if(batterie <= 10){
+                console.log(`${message} : branche ton téléphone !`);
+                break
+            }
+
+            //console.log(message)
+
+            batterie -= 15;
+            heures ++
+        }
+    // resultat
+        Après 6 h, batterie à 10 % : branche ton téléphone !
 ```
 
 **Source :** 
