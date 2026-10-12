@@ -23,3 +23,33 @@ Explique la « recherche dichotomique » et pourquoi 7 essais suffisent toujours
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const nombreATrouver = Math.floor(Math.random() * 100) + 1;
+let reponse;
+let tours = 0;
+const toursMax = 7;
+
+while(reponse !== nombreATrouver){
+    reponse = prompt("Entrez un nombre", "");
+
+    if(reponse === null){
+        console.log("partie abandonée");
+        break;
+    }
+    
+    reponse = Number(reponse);
+    
+    if(Number.isNaN(reponse)){
+        console.log("vous n'avez pas entré un nombre");
+        continue
+    }
+    else tours++
+
+    if(tours > toursMax){
+        console.log(`Vous avez perdu, c'était ${nombreATrouver}`)
+        break
+    }
+
+    if(reponse < nombreATrouver) console.log("plus grand")
+    else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`)
+    else console.log("plus petit");
+}

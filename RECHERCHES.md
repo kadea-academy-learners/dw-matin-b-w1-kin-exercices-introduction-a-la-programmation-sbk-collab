@@ -751,13 +751,50 @@ Il éxiste une alternativr appelé toSorted() qui elle crée une copie du tablau
 **Question :** Explique la « recherche dichotomique » et pourquoi 7 essais suffisent toujours pour trouver un nombre entre 1 et 100.
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+La recherche dichotomique consiste à couper le jeu en deux à chaque étape en proposant toujours le nombre du milieu [MDN Web Docs].
+Si le nombre mystère est entre 1 et 100, le premier essai élimine instantanément 50 possibilités d'un coup.
+À chaque tentative, la plage restante est divisée par 2 : on passe de 100 à 50, puis 25, 12, 6, 3, et enfin 1.
+Mathématiquement, 2 puissance 7 vaut 128, ce qui dépasse notre total de 100 nombres possibles.
+Il suffit donc de 7 divisions maximum pour isoler de manière certaine n'importe quel nombre secret
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const nombreATrouver = Math.floor(Math.random() * 100) + 1;
+        let reponse;
+        let tours = 0;
+        const toursMax = 7;
+
+        while(reponse !== nombreATrouver){
+            reponse = prompt("Entrez un nombre", "");
+
+            if(reponse === null){
+                console.log("partie abandonée");
+                break;
+            }
+            
+            reponse = Number(reponse);
+            
+            if(Number.isNaN(reponse)){
+                console.log("vous n'avez pas entré un nombre");
+                continue
+            }
+            else tours++
+
+            if(tours > toursMax){
+                console.log(`Vous avez perdu, c'était ${nombreATrouver}`)
+                break
+            }
+
+            if(reponse < nombreATrouver) console.log("plus grand")
+            else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`)
+            else console.log("plus petit");
+        }
+    //resultat
+        //un jeu sans bug qu'on peut jouer dans le navigateur
 ```
 
 **Source :** 
