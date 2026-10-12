@@ -660,13 +660,86 @@ Quand aucun élément ne correspond aux critères de recherche :
 **Question :** Comment classer le bulletin de la meilleure à la moins bonne moyenne avec .sort() ? Pourquoi .sort() modifie-t-il le tableau d'origine, et comment l'éviter ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
-
+.sort() est une méthode de tbleau qui compare les élément de ce dernier afin de les classer soit par ordre décroissant soit inversement.
+moyennes.sort((a, b) => b - a); les élément de moyenne sont classé par ordre décroissant.
+Cette méthode modifi le tableau d'origine en réorganisant le positionnement des élément directement sur la valeur chargé en mémoire.
+Il éxiste une alternativr appelé toSorted() qui elle crée une copie du tablau d'origine ou on peut simplement charger le tableau et utiliser la méthode dans une variable pour en créer une copie.
 ...
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
+    // test
+        const ponderation = [
+            {nom: "Amani", notes : [14, 16, 15]},
+            {nom: "Bijou", notes : [17, 18, 16]},
+            {nom: "Christian", notes : [8, 11, 9]},
+            {nom: "Divine", notes : [12, 10, 14]},
+            {nom: "Exaucé", notes : [16, 15, 19]}
+        ]
+
+        const calculerMoyenne = (notes) =>{
+            let result = "Moyenne";
+            let premier = ""
+            
+            for(let i = 0; i < notes.length; i ++){
+                const moyenne = notes [i].notes.reduce((total, n) => total + n, 0) / notes [i].notes.length;
+                let mention = ""
+                let moyenneArrondi = Math.round(moyenne * 10) / 10;
+
+                if(moyenne >= 16){
+                    mention = "Excellent";
+                    premier = `premier Excellent : ${ponderation [i].nom}`;
+                }
+                else if(moyenne >= 10) mention = "Admis";
+                else mention = "Rattrapage";
+                
+                result = result.slice(0, -1);
+                result += ` ${moyenneArrondi},`
+
+                console.log(`Moyenne ${moyenneArrondi}; ${mention} ${notes [i].nom}`);
+            }
+
+            return `${result} ; ${premier}`;
+        };
+
+        console.log(calculerMoyenne(ponderation));
+
+        const bulletin = ponderation.map(etudiant => {
+            const sommeNotes = etudiant.notes.reduce((total, n) => total + n, 0);
+            const moyenne = Math.round((sommeNotes / etudiant.notes.length) * 10) / 10;
+
+            let mention = "";
+            if (moyenne >= 16) {
+                mention = "Excellent";
+            } else if (moyenne >= 10) {
+                mention = "Admis";
+            } else {
+                mention = "Rattrapage";
+            }
+
+            return {
+                nom: etudiant.nom,
+                moyenne: moyenne,
+                mention: mention
+            };
+        });
+
+        console.table(bulletin);
+    // resultat
+        Moyenne 12; Admis Divine
+        Moyenne 16.7; Excellent Exaucé
+        Moyenn 15 17 9.3 12 16.7, ; premier Excellent : Exaucé
+        ┌─────────┬─────────────┬─────────┬──────────────┐
+        │ (index) │ nom         │ moyenne │ mention      │
+        ├─────────┼─────────────┼─────────┼──────────────┤
+        │ 0       │ 'Amani'     │ 15      │ 'Admis'      │
+        │ 1       │ 'Bijou'     │ 17      │ 'Excellent'  │
+        │ 2       │ 'Christian' │ 9.3     │ 'Rattrapage' │
+        │ 3       │ 'Divine'    │ 12      │ 'Admis'      │
+        │ 4       │ 'Exaucé'    │ 16.7    │ 'Excellent'  │
+        └─────────┴─────────────┴─────────┴──────────────┘
 ```
 
 **Source :** 

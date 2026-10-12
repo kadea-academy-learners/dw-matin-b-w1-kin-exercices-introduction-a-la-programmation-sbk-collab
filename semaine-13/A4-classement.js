@@ -23,3 +23,59 @@ Comment classer le bulletin de la meilleure à la moins bonne moyenne avec .sort
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const ponderation = [
+    {nom: "Amani", notes : [14, 16, 15]},
+    {nom: "Bijou", notes : [17, 18, 16]},
+    {nom: "Christian", notes : [8, 11, 9]},
+    {nom: "Divine", notes : [12, 10, 14]},
+    {nom: "Exaucé", notes : [16, 15, 19]}
+]
+
+const calculerMoyenne = (notes) =>{
+    let result = "Moyenne";
+    let premier = ""
+    
+    for(let i = 0; i < notes.length; i ++){
+        const moyenne = notes [i].notes.reduce((total, n) => total + n, 0) / notes [i].notes.length;
+        let mention = ""
+        let moyenneArrondi = Math.round(moyenne * 10) / 10;
+
+        if(moyenne >= 16){
+            mention = "Excellent";
+            premier = `premier Excellent : ${ponderation [i].nom}`;
+        }
+        else if(moyenne >= 10) mention = "Admis";
+        else mention = "Rattrapage";
+        
+        result = result.slice(0, -1);
+        result += ` ${moyenneArrondi},`
+
+        console.log(`Moyenne ${moyenneArrondi}; ${mention} ${notes [i].nom}`);
+    }
+
+    return `${result} ; ${premier}`;
+};
+
+console.log(calculerMoyenne(ponderation));
+
+const bulletin = ponderation.map(etudiant => {
+    const sommeNotes = etudiant.notes.reduce((total, n) => total + n, 0);
+    const moyenne = Math.round((sommeNotes / etudiant.notes.length) * 10) / 10;
+
+    let mention = "";
+    if (moyenne >= 16) {
+        mention = "Excellent";
+    } else if (moyenne >= 10) {
+        mention = "Admis";
+    } else {
+        mention = "Rattrapage";
+    }
+
+    return {
+        nom: etudiant.nom,
+        moyenne: moyenne,
+        mention: mention
+    };
+});
+
+console.table(bulletin);
