@@ -33,4 +33,4 @@ const verrifierParite = (numeroTicket) =>{
     else return (`Ticket ${numeroTicket} : impair, tu gagnes un stylo`);
 }
 
-console.log (`${verrifierParite(17)}\n${verrifierParite(24)}\n${verrifierParite(0)}`);
+console.log (`${verrifierParite(17)}\n${verrifierParite(24)}\n${verrifierParite(0)}`); 
