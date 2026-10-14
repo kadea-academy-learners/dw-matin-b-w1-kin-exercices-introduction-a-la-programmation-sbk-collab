@@ -40,4 +40,4 @@ Number(true) retournera probablement 1 car true veut 1
 
 // moment test 😅 moment de verité
 
-console.log (`les prédictions vérifiées : ${Number('')}, ${Number('abc')}, ${Number(' 42 ')}, ${Number(true)}`);
+console.log (`les prédictions vérifiées : ${Number('')}, ${Number('abc')}, ${Number(' 42 ')}, ${Number(true)}`); 
