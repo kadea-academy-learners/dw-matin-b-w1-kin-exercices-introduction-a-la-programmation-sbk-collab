@@ -21,15 +21,25 @@ Le type objet équivaut à 000 (3 bits) suivit de sa donnée alors que le type n
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
     // voici le code que j'ai exécuté
-        const carteApprenant = (prenom, age, commune, estInscrit = false, surnom, ancienneFormation = null) =>{
-            console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
-            return `${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${typeof ancienneFormation}`
-        };
+        const prenom = "Grâce";
+        let age = 22;
+        let commune = "Lemba";
+        let estInscrit = false;
+        let surnom;
+        const ancienneFormation = null;
+
+        const monTypeOf = (valeur) =>{
+            if(valeur === null) return "null";
+            return typeof(valeur);
+        }
+
+        console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
+        console.log(`${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${monTypeOf(ancienneFormation)}`);
 
         console.log (carteApprenant ("Grâce", 22, "Lemba"));
     // voici le resultat obtenu
         Je m'appelle Grâce, j'ai 22 ans et j'habite à Lemba.
-        string, number, string, boolean, undefined, object
+        string, number, string, boolean, undefined, null
 ```
 
 **Source :** 

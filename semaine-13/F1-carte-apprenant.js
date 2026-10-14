@@ -23,9 +23,23 @@ Pourquoi typeof null renvoie-t-il 'object' alors que null n'est pas un objet ?
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
-const carteApprenant = (prenom, age, commune, estInscrit = false, surnom, ancienneFormation = null) =>{
-    console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
-    return `${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${typeof ancienneFormation}`
-};
+const prenom = "Grâce";
+// pour ce programe la variable prenom comme les autres const n'est pas appelé à changer de valeur dans une carte apprenant
+let age = 22;
+// techniquement l'age est une constante car on soustrait toujours la date actuel par la date de naissance. Je ne le fais pas ici c'est pourquoi je met let
+let commune = "Lemba";
+// l'apprenant peiut être emenné à changer d'adresse pour une raison quelconque
+let estInscrit = false;
+// valeur par défaut qui peut être emené à changer si le candidat est inscrit
+let surnom;
+// nom non officiel pouvant changer
+const ancienneFormation = null;
+// la carte d'inscription étant faite à une date où le dit apprenant n'a pas eu d'anciènne formation cette vairiable est une constante
 
-console.log (carteApprenant ("Grâce", 22, "Lemba"));
+const monTypeOf = (valeur) =>{
+    if(valeur === null) return "null";
+    return typeof(valeur);
+}
+
+console.log(`Je m'appelle ${prenom}, j'ai ${age} ans et j'habite à ${commune}.`);
+console.log(`${typeof prenom}, ${typeof age}, ${typeof commune}, ${typeof estInscrit}, ${typeof surnom}, ${monTypeOf(ancienneFormation)}`);
