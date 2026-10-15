@@ -233,20 +233,17 @@ Il ne sert pas a dénicher un génie en programation, juste a filtrer par un sim
         let compteur = "";
 
         for(let n = 1; n <= 30; n++){
-            if(n % 3 === 0){
-                if(n % 5 === 0) compteur += "MalewaWewa, ";
-                else compteur += "Malewa, ";
-            }
+            if(n % 3 === 0 && n % 5 === 0) compteur += "MalewaWewa, ";
+            else if(n % 3 === 0) compteur += "Malewa, ";
             else if(n % 5 === 0) compteur += "Wewa, ";
             else compteur += `${n}, `;
 
-            if(n === 15){
+            if(n === 30){
                 compteur = compteur.slice(0, -2);
-                break;
             }
         }
     // le résultat
-        1, 2, Malewa, 4, Wewa, Malewa, 7, 8, Malewa, Wewa, 11, Malewa, 13, 14, MalewaWewa
+        1, 2, Malewa, 4, Wewa, Malewa, 7, 8, Malewa, Wewa, 11, Malewa, 13, 14, MalewaWewa, 16, 17, Malewa, 19, Wewa, Malewa, 22, 23, Malewa, Wewa, 26, Malewa, 28, 29, MalewaWewa
 ```
 
 **Source :** 
