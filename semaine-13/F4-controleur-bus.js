@@ -27,5 +27,8 @@ const age = 16;
 const testMajorite = age >= 18 ? "Majoeur" : "Mineur";
 
 if (age < 5) console.log("Statu : mineur — Tarif : gratuit");
+// le tarif est gratuit à moin de 5 ans
 else if (age > 5 && age < 18) console.log("Statu : mineur — Tarif : 500 FC");
+// le tarif est à 500 FC pour les moins de 18 ans à partir de 5 ans
 else console.log("Statu : majeur — Tarif : 1000 FC")
+// Sinon le tarif est à 1000 FC pour les majeurs

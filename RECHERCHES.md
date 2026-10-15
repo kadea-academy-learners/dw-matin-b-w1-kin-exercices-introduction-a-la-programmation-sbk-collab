@@ -133,7 +133,7 @@ On les reserve pour des structures simples et courtes.
         else if (age > 5 && age < 18) console.log("Statu : mineur — Tarif : 500 FC");
         else console.log("Statu : majeur — Tarif : 1000 FC")
         // résultat
-            Statu : mineur — Tarif : gratuit
+            Statu : mineur — Tarif : 500 FC
 ```
 
 **Source :** 
