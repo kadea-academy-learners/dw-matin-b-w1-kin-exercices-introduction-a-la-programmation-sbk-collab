@@ -183,7 +183,7 @@ Les deux sont donc différent tant par leur utilité que par leur nom.
     // teste efféctué
         let resultat = "";
 
-        for (let i = 10; i !== 0; i--){
+        for (let i = 10; i >= 1; i--){
             if (i === 1) {
                 resultat += `${i}, Décollage !`
                 break
@@ -193,8 +193,22 @@ Les deux sont donc différent tant par leur utilité que par leur nom.
         }
 
         console.log(resultat);
+
+        let resultat2 = "";
+
+        for (let i = 10; i >= 1; i--){
+            if (i === 1) {
+                resultat2 += `Décollage !`
+                break
+            }
+            else if (i % 2 !== 0) continue;
+            resultat2 += `${i}, `;
+        }
+
+        console.log(resultat2);
     // resultat
         10, 9, 8, 7, 6, 4, 3, 2, 1, Décollage !
+        10, 8, 6, 4, 2, Décollage !
 ```
 
 **Source :** 

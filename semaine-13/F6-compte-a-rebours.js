@@ -23,7 +23,7 @@ Recherche (à rédiger dans RECHERCHES.md) :
 
 let resultat = "";
 
-for (let i = 10; i !== 0; i--){
+for (let i = 10; i >= 1; i--){
     if (i === 1) {
         resultat += `${i}, Décollage !`
         break
@@ -33,3 +33,16 @@ for (let i = 10; i !== 0; i--){
 }
 
 console.log(resultat);
+
+let resultat2 = "";
+
+for (let i = 10; i >= 1; i--){
+    if (i === 1) {
+        resultat2 += `Décollage !`
+        break
+    }
+    else if (i % 2 !== 0) continue;
+    resultat2 += `${i}, `;
+}
+
+console.log(resultat2);
