@@ -347,7 +347,7 @@ false ?? true renvoi false (valeur par défaut) et false || true renvoi true. On
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
     // test
-        const afficherScoreBug = (score) => score ? `Score : ${score}` : `Score : 'aucun'`;
+        const afficherScoreBug = (score) =>`Score : ${score || 'aucun'}`;
 
         console.log (afficherScoreBug(15));
         console.log (afficherScoreBug(0));
@@ -357,7 +357,7 @@ false ?? true renvoi false (valeur par défaut) et false || true renvoi true. On
 
         // ici 0 ne donne pas le résultat attendu car il est considéré comme false
 
-        const afficherScore = (score = `'aucun'`) => `Score : ${score}` ?? score;
+        const afficherScore = (score) => `Score : ${score ?? 'aucun'}`;
 
         console.log (afficherScore(15));
         console.log (afficherScore(0));
