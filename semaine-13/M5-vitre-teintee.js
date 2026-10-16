@@ -36,15 +36,14 @@ Pourquoi var est-il banni du code moderne ? Cherche ce que sont la portée de fo
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 // Mes prédictions (avant d'exécuter) :
-/*
-La condition est valide car true est vrai, donc on affiche ville.
-L'affichage de commune ne peut pas être effectué car cette variable a une porté limité dans les scops d'une condition car elle y est déclaré.
-L'affichage de la fonction affiche secret/'pondu' mais celui de secret renvoi une erreur car secret est une variable déclaré dans une fonction.
-*/
+// La condition est valide car true est vrai, donc on affiche ville.
+// L'affichage de commune ne peut pas être effectué car cette variable a une porté limité dans les scops d'une condition car elle y est déclaré.
+// L'affichage de la fonction affiche secret/'pondu' mais celui de secret renvoi une erreur car secret est une variable déclaré dans une fonction.
 //
 
-const ville = 'Kinshasa';
+
 if (true) {
+  const ville = 'Kinshasa';
   const commune = 'Gombe';
   console.log(ville);
   console.log(commune);

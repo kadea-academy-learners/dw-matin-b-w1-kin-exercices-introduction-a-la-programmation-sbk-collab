@@ -394,17 +394,18 @@ let et const et par conséquant les fonctions fléchée qui sont des fonctions s
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
     // test
-        const ville = 'Kinshasa';
-        if (true) {
-            const commune = 'Gombe';
-            console.log(ville);
-            console.log(commune);
-        }
+    if (true) {
+      const ville = 'Kinshasa';
+      const commune = 'Gombe';
+      console.log(ville);
+      console.log(commune);
+    }
 
-        const afficher = () => {
-            const secret = 'pondu';
-            return secret;
-        };
+    const afficher = () => {
+      const secret = 'pondu';
+      return secret;
+    };
+    console.log(afficher());
         console.log(afficher());
     // resultat
         Kinshasa
