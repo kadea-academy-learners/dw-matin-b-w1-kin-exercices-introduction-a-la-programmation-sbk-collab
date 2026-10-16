@@ -30,4 +30,4 @@ function saluerClassique(prenom) { return 'Mbote ' + prenom + ' !'; }
 const saluer = (prenom) => `Mbote ${prenom} !`;
 const carre = (n) => n ** 2;
 
-console.log(`${saluer("Lys")} puis ${carre(7)}`);
+console.log(`${saluer("Lys")} puis ${carre(7)}`); 
