@@ -31,6 +31,11 @@ const toursMax = 7;
 while(reponse !== nombreATrouver){
     reponse = prompt("Entrez un nombre", "");
 
+    if(tours === toursMax){
+        console.log(`Vous avez perdu, c'était ${nombreATrouver}`);
+        break;
+    }
+
     if(reponse === null){
         console.log("partie abandonée");
         break;
@@ -40,16 +45,11 @@ while(reponse !== nombreATrouver){
     
     if(Number.isNaN(reponse)){
         console.log("vous n'avez pas entré un nombre");
-        continue
+        continue;
     }
     else tours++
 
-    if(tours > toursMax){
-        console.log(`Vous avez perdu, c'était ${nombreATrouver}`)
-        break
-    }
-
-    if(reponse < nombreATrouver) console.log("plus grand")
-    else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`)
-    else console.log("plus petit");
+    if(reponse < nombreATrouver) console.log("indices plus grand");
+    else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`);
+    else console.log("indices plus petit");
 }

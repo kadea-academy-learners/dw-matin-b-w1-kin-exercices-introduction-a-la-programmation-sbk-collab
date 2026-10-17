@@ -781,6 +781,11 @@ Il suffit donc de 7 divisions maximum pour isoler de manière certaine n'importe
         while(reponse !== nombreATrouver){
             reponse = prompt("Entrez un nombre", "");
 
+            if(tours === toursMax){
+                console.log(`Vous avez perdu, c'était ${nombreATrouver}`);
+                break;
+            }
+
             if(reponse === null){
                 console.log("partie abandonée");
                 break;
@@ -790,18 +795,13 @@ Il suffit donc de 7 divisions maximum pour isoler de manière certaine n'importe
             
             if(Number.isNaN(reponse)){
                 console.log("vous n'avez pas entré un nombre");
-                continue
+                continue;
             }
             else tours++
 
-            if(tours > toursMax){
-                console.log(`Vous avez perdu, c'était ${nombreATrouver}`)
-                break
-            }
-
-            if(reponse < nombreATrouver) console.log("plus grand")
-            else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`)
-            else console.log("plus petit");
+            if(reponse < nombreATrouver) console.log("indices plus grand");
+            else if(reponse === nombreATrouver) console.log(`trouvé en ${tours} essais !`);
+            else console.log("indices plus petit");
         }
     //resultat
         //un jeu sans bug qu'on peut jouer dans le navigateur
