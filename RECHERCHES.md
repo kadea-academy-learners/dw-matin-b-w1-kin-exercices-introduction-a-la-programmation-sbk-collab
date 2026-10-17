@@ -649,6 +649,15 @@ Quand aucun élément ne correspond aux critères de recherche :
             return produitTrouve?.nom ?? "Produit introuvable";
         };
 
+        let prixUSD = article.map(pr =>{
+            const convert = pr.prixFC / 2800;
+            const result = Math.round(convert);
+
+            return result;
+        });
+
+        console.log(prixUSD);
+
         console.table(chercherProduit(104));
         console.table(chercherProduit(999));
         console.table(chercherProduit(102));
@@ -661,6 +670,7 @@ Quand aucun élément ne correspond aux critères de recherche :
         │ 1       │ 103 │ 'Souris sans fil' │ 'Informatique' │ 28000  │ 12    │
         │ 2       │ 105 │ 'Casque audio'    │ 'Informatique' │ 70000  │ 0     │
         └─────────┴─────┴───────────────────┴────────────────┴────────┴───────┘
+        [ 5, 15, 10, 8, 25, 3 ]
         Gourde isotherme
         Produit introuvable
         produit en rupture

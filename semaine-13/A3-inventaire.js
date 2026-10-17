@@ -51,6 +51,15 @@ const chercherProduit = (id) =>{
    return produitTrouve?.nom ?? "Produit introuvable";
 };
 
+let prixUSD = article.map(pr =>{
+   const convert = pr.prixFC / 2800;
+   const result = Math.round(convert);
+
+   return result;
+});
+
+console.log(prixUSD);
+
 console.table(chercherProduit(104));
 console.table(chercherProduit(999));
 console.table(chercherProduit(102));
