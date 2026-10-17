@@ -468,8 +468,8 @@ variable = variable + autreVariable. Cette formule n'est pas la seul car on peut
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
     // test
-        let epargneHebdo = 2000;
-        let bonus = 1000;
+        const epargneHebdo = 2000;
+        const bonus = 1000;
         let total = 0;
         let gainHebdo = 0;
 
