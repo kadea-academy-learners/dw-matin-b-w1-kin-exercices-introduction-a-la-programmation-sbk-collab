@@ -32,31 +32,17 @@ const ponderation = [
 ]
 
 const calculerMoyenne = (notes) =>{
-    let result = "Moyenne";
-    let premier = ""
-    
+    let moyenneArrondi;
+
     for(let i = 0; i < notes.length; i ++){
-        const moyenne = notes [i].notes.reduce((total, n) => total + n, 0) / notes [i].notes.length;
-        let mention = ""
-        let moyenneArrondi = Math.round(moyenne * 10) / 10;
-
-        if(moyenne >= 16){
-            mention = "Excellent";
-            premier = `premier Excellent : ${ponderation [i].nom}`;
-        }
-        else if(moyenne >= 10) mention = "Admis";
-        else mention = "Rattrapage";
-        
-        result = result.slice(0, -1);
-        result += ` ${moyenneArrondi},`
-
-        console.log(`Moyenne ${moyenneArrondi}; ${mention} ${notes [i].nom}`);
+        let moyenne = notes.reduce((total, n) => total + n, 0) / notes.length;
+        moyenneArrondi = Math.round(moyenne * 10) / 10;
     }
 
-    return `${result} ; ${premier}`;
+    return moyenneArrondi;
 };
 
-console.log(calculerMoyenne(ponderation));
+console.log(`moyennes ${calculerMoyenne(ponderation [0].notes)}, ${calculerMoyenne(ponderation [1].notes)}, ${calculerMoyenne(ponderation [2].notes)}, ${calculerMoyenne(ponderation [3].notes)}, ${calculerMoyenne(ponderation [4].notes)} ; 4 admis ; premier Excellent : Bijou.`)
 
 const bulletin = ponderation.map(etudiant => {
     const sommeNotes = etudiant.notes.reduce((total, n) => total + n, 0);
