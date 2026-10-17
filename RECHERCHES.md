@@ -513,17 +513,14 @@ L'étape 4 se serait exécuté une fois puis la boucle se serait arrété. Le re
         let batterie = 100;
         let heures = 0;
 
-        while (batterie >= 10){
-            let message = `Après ${heures} h, batterie à ${batterie} %`
-            if(batterie <= 10){
-                console.log(`${message} : branche ton téléphone !`);
-                break
-            }
-
-            //console.log(message)
-
+        while (batterie >= 20){
             batterie -= 15;
             heures ++
+            const message = `Après ${heures} h, batterie à ${batterie} %`;
+            if(batterie <= 10){
+                console.log(`${message} : branche ton téléphone !`);
+                break;
+            }
         }
     // resultat
         Après 6 h, batterie à 10 % : branche ton téléphone !

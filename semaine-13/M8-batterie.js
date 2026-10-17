@@ -25,15 +25,12 @@ Quelle est la différence entre while et do...while ? Que donnerait l'étape 4 a
 let batterie = 100;
 let heures = 0;
 
-while (batterie >= 10){
-    let message = `Après ${heures} h, batterie à ${batterie} %`
-    if(batterie <= 10){
-        console.log(`${message} : branche ton téléphone !`);
-        break
-    }
-
-    //console.log(message)
-
+while (batterie >= 20){
     batterie -= 15;
     heures ++
+    const message = `Après ${heures} h, batterie à ${batterie} %`;
+    if(batterie <= 10){
+        console.log(`${message} : branche ton téléphone !`);
+        break;
+    }
 }
