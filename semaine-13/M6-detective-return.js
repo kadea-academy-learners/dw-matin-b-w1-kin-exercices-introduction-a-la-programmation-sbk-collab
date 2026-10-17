@@ -42,6 +42,6 @@ console.log(total);                // NaN ?!
 
 const saluer = (prenom) => {
   return `Mbote ${prenom}`;
-};
+}; 
 // le retour n'était pas définit car la chaine était sur une autre lige. J'ai donc mis la chaine sur la même ligne que return.
 console.log(saluer('Ney'));        // undefined ?!

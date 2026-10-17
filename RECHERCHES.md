@@ -424,7 +424,7 @@ let et const et par conséquant les fonctions fléchée qui sont des fonctions s
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 Le troisième bug vien d'une insertion automatique de point-virgule.
 ASI : 
-JavaScript rajoute automatiquement un point virgule à la fin de chaques ligne pour finir une instruction, ce qui fait que la valeur qui vien après la ligne du return ne soit pas considéré
+JavaScript rajoute automatiquement un point virgule à la fin de chaques ligne pour finir une instruction, ce qui fait que la valeur qui vien après la ligne du return ne soit pas considéré.
 ...
 
 **Mon test dans la console :**
