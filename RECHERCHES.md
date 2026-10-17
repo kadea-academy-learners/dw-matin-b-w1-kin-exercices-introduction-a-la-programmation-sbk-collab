@@ -587,8 +587,9 @@ La méthode .reduce sert à "réduire" un tableau de plusieurs éléments en une
     // test
         const heuresSemaine = [8, 9, 10, 8, 7, 6];
         let horaireHebdoDeBase = 40;
-        let horiareHebdoTotal = 0;
-        heuresSemaine.forEach(n => horiareHebdoTotal += n);
+        // let horiareHebdoTotal = 0;
+        // heuresSemaine.forEach(n => horiareHebdoTotal += n);
+        const horiareHebdoTotal = heuresSemaine.reduce((total, n) => total + n, 0);
 
         const calculerSalaire = (heures, tauxHoraire = 2500) =>{
             let salaireHebdo = 0;
@@ -600,10 +601,10 @@ La méthode .reduce sert à "réduire" un tableau de plusieurs éléments en une
             }
             else salaireHebdo = tauxHoraire * heures;
 
-            return `Total : ${heures} h — Salaire : ${salaireHebdo} FC ; jour le plus chargé : mercredi (10 h)`
+            return salaireHebdo;
         };
 
-        console.log(calculerSalaire(horiareHebdoTotal));
+        console.log(`Total : ${horiareHebdoTotal} h — Salaire : ${calculerSalaire(horiareHebdoTotal)} FC ; jour le plus chargé : mercredi (10 h)`);
     // resultat
         Total : 48 h — Salaire : 130000 FC ; jour le plus chargé : mercredi (10 h)
 ```

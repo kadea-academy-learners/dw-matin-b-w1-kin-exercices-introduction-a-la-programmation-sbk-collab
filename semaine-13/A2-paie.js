@@ -38,7 +38,7 @@ const calculerSalaire = (heures, tauxHoraire = 2500) =>{
     }
     else salaireHebdo = tauxHoraire * heures;
 
-    return `Total : ${heures} h — Salaire : ${salaireHebdo} FC ; jour le plus chargé : mercredi (10 h)`
+    return salaireHebdo;
 };
 
-console.log(calculerSalaire(horiareHebdoTotal));
+console.log(`Total : ${horiareHebdoTotal} h — Salaire : ${calculerSalaire(horiareHebdoTotal)} FC ; jour le plus chargé : mercredi (10 h)`);
