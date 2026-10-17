@@ -544,23 +544,19 @@ L'étape 4 se serait exécuté une fois puis la boucle se serait arrété. Le re
 // colle ici le test que tu as exécuté et le résultat obtenu
     // test
         const calculerLivraison = (distanceKm, poidsKg, estUrgent = false) =>{
-            let tarif = 0;
+            let tarif = 7000;
             let tvaAppliquee = 0;
             // conditions tarif de distance
-            if(distanceKm <= 15){
-                if(distanceKm < 5) tarif = 2000;
-                else tarif = 4000;
-            }
-            else tarif = 7000;
-            // conditions tarif de poid
-            if (poidsKg > 10){
-                tarif = (tarif + 1500) * 1.5;
-                estUrgent = true;
-            }
+            if(distanceKm <= 15 && distanceKm <= 5) tarif = 2000;
+            else if(distanceKm > 5 && distanceKm <= 15) tarif = 4000;
+            // condition tarif de poid
+            if (poidsKg > 10) tarif += 1500;
+            // condition d'urgence
+            if(estUrgent === true) tarif *= 1.5;
 
             tvaAppliquee = tarif + (tarif * 0.16);
 
-            return tvaAppliquee;
+            return Math.round(tvaAppliquee);
         };
 
         console.log(calculerLivraison(3, 2));
